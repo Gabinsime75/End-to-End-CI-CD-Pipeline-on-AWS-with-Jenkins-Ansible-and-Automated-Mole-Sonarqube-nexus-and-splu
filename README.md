@@ -13,8 +13,8 @@
 - [EC2](https://aws.amazon.com/ec2/) EC2 allows users to rent virtual computers (EC2) to run their own workloads and applications.
 - [Slack](https://slack.com/) Slack is a communication platform designed for collaboration which can be leveraged to build and develop a very robust DevOps culture. Will be used for Continuous feedback loop.
 - [Prometheus](https://prometheus.io/) Prometheus is a free software application used for event/metric monitoring and alerting for both application and infrastructure.
-- [Grafana](https://grafana.com/) Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.
-- [Splunk](https://www.splunk.com/) Splunk is an innovative technology which searches and indexes application/system log files and helps organizations derive insights from the data.
+- [Grafana](https://grafana.com/) By incorporating Grafana into your CI/CD pipeline, you can leverage its powerful visualization capabilities to monitor, analyze, and optimize the performance of your applications and infrastructure throughout the software development lifecycle. This helps ensure that your applications meet performance standards and provide a positive user experience.
+- [Splunk](https://www.splunk.com/) By incorporating Splunk into your CI/CD pipeline, you can gain deeper insights into your application's behavior and performance at every stage of development and deployment. This can lead to faster issue resolution, improved code quality, and more reliable releases.
 
 # Jenkins Complete CI/CD Pipeline Environment Setup Runbook
 1) Create a GitHub Repository with the name `Jenkins-CICD-Project` and push the code in this branch(main) to 
