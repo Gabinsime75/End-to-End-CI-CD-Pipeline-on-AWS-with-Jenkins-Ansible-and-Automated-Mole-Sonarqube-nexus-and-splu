@@ -1,6 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -16,29 +16,46 @@
   <description>Webapp.</description>
 
   <build>
-    <finalName>${project.artifactId}</finalName>
+    <!-- Output will be webapp.war (no version in filename) -->
+    <finalName>webapp</finalName>
 
     <plugins>
+      <!-- Use a modern WAR plugin and don't require web.xml -->
       <plugin>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>jetty-maven-plugin</artifactId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
       </plugin>
+
+      <!-- OPTIONAL: If you actually need Jetty, use the current coords.
+           Remove this entirely if you don't run the app via Jetty in Maven. -->
+      <!--
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.4.54.v20240208</version>
+      </plugin>
+      -->
     </plugins>
   </build>
 
   <dependencies>
-
+    <!-- Override parent’s old 2.5 API. Keep 'provided' for container-provided libs -->
     <dependency>
       <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
       <scope>provided</scope>
     </dependency>
 
+    <!-- If you use JSPs, keep JSP API as provided. Pick a modern version if needed. -->
     <dependency>
       <groupId>javax.servlet.jsp</groupId>
-      <artifactId>jsp-api</artifactId>
+      <artifactId>javax.servlet.jsp-api</artifactId>
+      <version>2.3.3</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
-
 </project>
