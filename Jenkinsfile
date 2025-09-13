@@ -77,7 +77,7 @@ pipeline {
            nexusArtifactUploader(
               nexusVersion: 'nexus3',
               protocol: 'http',
-              nexusUrl: '54.90.107.67',
+              nexusUrl: '54.90.107.67:8081',
               groupId: 'webapp',
               version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
               repository: 'maven-project-releases',  //"${NEXUS_REPOSITORY}",
@@ -85,7 +85,7 @@ pipeline {
               artifacts: [
                   [artifactId: 'webapp',
                   classifier: '',
-                  file: '/var/lib/jenkins/workspace/jenkins-complete-cicd-pipeline/webapp/target/webapp.war',
+                  file: "${WORKSPACE}/webapp/target/webapp.war",
                   type: 'war']
               ]
            )
